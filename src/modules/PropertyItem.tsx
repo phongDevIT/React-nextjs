@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 interface PropertyItemProps {
-    // children?: React.ReactNode;
     item: PropertyItemData;
 }
 const PropertyItem = ({ item }: PropertyItemProps) => {
