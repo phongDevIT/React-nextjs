@@ -15,24 +15,8 @@ const property = () => {
         // staleTime: 1000 * 60 * 1,
     });
     const properties = data;
-    // const [data, setData] = React.useState<any[]>([]);
-    // const [loading, setLoading] = React.useState<boolean[]>(false);
-    // const [error, setError] = React.useState<any[]>(null);
-    // useEffect(() => {
-    //     async function fetchingProperties() {
-    //         setLoading(true);
-    //         try {
-    //             const res = await axios.get(`${API_URL}/property`);
-    //             console.log("res: ", res);
-    //             if (res.status === 200) setData(res.data);
-    //         } catch (error) {
-    //             console.log("error: ", error);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     }
-    //     fetchingProperties();
-    // }, []);
+    if (error || properties?.length === 0) return null;
+    if (isLoading) return null;
     return (
         <LayoutMain>
             <div className="flex items-center justify-between mb-5">

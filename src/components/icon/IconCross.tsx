@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconDashboard = (props: JSX.IntrinsicElements["svg"]) => {
+const IconCross = (props: JSX.IntrinsicElements["svg"]) => {
     return (
         <svg
             width="14"
@@ -18,4 +18,4 @@ const IconDashboard = (props: JSX.IntrinsicElements["svg"]) => {
     );
 };
 
-export default IconDashboard;
+export default IconCross;

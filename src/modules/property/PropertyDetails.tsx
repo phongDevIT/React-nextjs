@@ -10,11 +10,23 @@ import React from "react";
 import IconRating from "../../components/icon/IconRating";
 import IconMassage from "@/components/icon/IconMessage";
 import IconCall from "../../components/icon/IconCall";
-function renderFacilityIcon(name: string) {
-    const Icon = dynamic(
-        () => import(`../../components/icon/Icon${name.replace(/ /, "")}`)
+import capitalizeStr from "@/utils/ToCapitalize";
+import Link from "next/link";
+
+function renderFacilityIcon(item: any) {
+    const [name, count] = item;
+    const newName = capitalizeStr(name, "-").replace(/ /g, "");
+    const Icon = dynamic(() => import(`../../components/icon/Icon${newName}`));
+    return (
+        <>
+            <span>
+                <Icon></Icon>
+            </span>
+            <span className="text-sm font-medium">
+                {count} {newName}
+            </span>
+        </>
     );
-    return <Icon></Icon>;
 }
 const PropertyDetails = () => {
     const router = useRouter();
@@ -27,7 +39,7 @@ const PropertyDetails = () => {
 
     if (!data || error) return null;
     if (isLoading) return <Spinner />;
-    const facilities = Object.entries(data.info || {});
+    const facilities = Object.entries(data.facility || {});
     const agent = data.agent;
     return (
         <>
@@ -37,7 +49,7 @@ const PropertyDetails = () => {
             ></HeadContent>
             <div className="p-5 bg-grayfc rounded-2xl">
                 <h2 className="flex items-center gap-5 mb-6 text-xl font-medium">
-                    <span>
+                    <Link href="properties">
                         <svg
                             width="9"
                             height="16"
@@ -52,7 +64,7 @@ const PropertyDetails = () => {
                                 fill="#11142D"
                             />
                         </svg>
-                    </span>
+                    </Link>
                     Details
                 </h2>
                 <div className="grid grid-cols-[2fr_1fr] gap-6">
@@ -148,12 +160,7 @@ const PropertyDetails = () => {
                                             className="flex items-center gap-1"
                                             key={index}
                                         >
-                                            <span>
-                                                {renderFacilityIcon(item[0])}
-                                            </span>
-                                            <span className="text-sm font-medium">
-                                                {item[1]} {item[0]}
-                                            </span>
+                                            {renderFacilityIcon(item)}
                                         </div>
                                     ))}
                             </div>

@@ -2,7 +2,7 @@ export interface PropertyItemData {
     id?: number;
     title?: string;
     address?: string;
-    info?: PropertyFacility;
+    facility?: PropertyFacility;
     status?: string;
     type?: string;
     price?: number;

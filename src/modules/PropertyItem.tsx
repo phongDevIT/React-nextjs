@@ -25,7 +25,7 @@ const PropertyItem = ({ item }: PropertyItemProps) => {
                 priority
             ></Image>
             <div className="flex-1">
-                <span className="inline-block text-xs font-semibold text-primary py-2 px-[10px] rounded-lg bg-primary mb-2">
+                <span className="inline-block text-xs font-semibold text-white py-2 px-[10px] rounded-lg bg-primary mb-2">
                     ${item.price}
                 </span>
                 <h3 className="mb-1 text-base font-semibold text-primaryText">

@@ -5,6 +5,7 @@ import {
     IconPerson,
     IconProfile,
 } from "@/components/icon";
+import IconMassageSizebar from "@/components/icon/IconMessageSizebar";
 import IconStar from "@/components/icon/IconStar";
 import { TSidebarLink } from "@/types/general.type";
 
@@ -31,7 +32,7 @@ export const sidebarLink: TSidebarLink[] = [
     },
     {
         title: "Message",
-        icon: <IconMessage />,
+        icon: <IconMassageSizebar />,
         path: "/message",
     },
     {
